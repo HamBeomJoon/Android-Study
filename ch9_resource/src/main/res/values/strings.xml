@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Ch9_Resource</string>
-    <string name="intro">Hello</string>
+    <string name="intro_main">Find your phone contacts on Messenger</string>
+    <string name="intro_detail">Continuosly uploading your contacts helps Facebook and Messenger...</string>
+    <string name="intro_more">Learn More</string>
+    <string name="intro_button">TURN ON</string>
+    <string name="intro_delay">NOT NOW</string>
 </resources>
