@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ch9_Resource</string>
+    <string name="intro">안녕하세요</string>
+</resources>
