@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.androidlab"
+    namespace = "com.example.navbat"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.androidlab"
+        applicationId = "com.example.navbat"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -33,14 +33,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
+    buildFeatures{
         viewBinding = true
+        dataBinding = true
     }
 }
 
 dependencies {
     implementation("androidx.fragment:fragment-ktx:1.6.2")
-    implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
