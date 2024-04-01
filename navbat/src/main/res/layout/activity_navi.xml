@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbarInclude"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <FrameLayout
         android:id="@+id/mainFrameLayout"
         android:layout_width="match_parent"
@@ -16,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        app:itemBackground="@color/alabaster"
+        app:itemBackground="@color/platinum"
         app:itemIconTint="@drawable/menu_click"
         app:itemTextColor="@drawable/menu_click"
         app:layout_constraintBottom_toBottomOf="parent"
