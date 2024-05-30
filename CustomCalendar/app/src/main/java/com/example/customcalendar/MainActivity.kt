@@ -1,20 +1,43 @@
 package com.example.customcalendar
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+
+
+import com.example.customcalendar.databinding.ActivityMainBinding
+import kotlin.math.exp
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    var expenseList = mutableListOf<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        setContentView(binding.root)
+
+        val monthListManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        val monthListAdapter = MonthRvAdapter()
+
+        binding.rvCalendar.apply {
+            layoutManager = monthListManager
+            adapter = monthListAdapter
+            scrollToPosition(Int.MAX_VALUE / 2)
         }
+        val snap = PagerSnapHelper()
+        snap.attachToRecyclerView(binding.rvCalendar)
+
+        expenseList.add("aaa1")
+        expenseList.add("aaa2")
+        expenseList.add("aaa3")
+        val expenseDetailRvAdapter = ExpenseDetailRvAdapter(expenseList)
+
+        binding.rvExpneseList.apply {
+            layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+            adapter = expenseDetailRvAdapter
+        }
+
     }
 }
