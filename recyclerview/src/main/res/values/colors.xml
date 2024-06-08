@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="rust">#5E524E</color>
+    <color name="taupe">#704F48</color>
+    <color name="sage">#797568</color>
+    <color name="platinum">#A9A09B</color>
+    <color name="platinum_alpha70">#B3A9A09B</color>
+    <color name="alabaster">#DAD6D3</color>
+</resources>

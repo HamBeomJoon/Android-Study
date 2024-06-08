@@ -42,6 +42,9 @@
       <entry key="navbat">
         <State />
       </entry>
+      <entry key="recyclerview">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
