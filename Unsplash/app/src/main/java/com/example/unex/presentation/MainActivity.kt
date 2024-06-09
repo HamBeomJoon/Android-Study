@@ -1,4 +1,4 @@
-package com.example.unex
+package com.example.unex.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
