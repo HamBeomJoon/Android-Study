@@ -10,15 +10,7 @@ android {
     namespace = "com.example.unex"
     compileSdk = 34
 
-    val localProperties = Properties()
-    localProperties.load(FileInputStream(rootProject.file("local.properties")))
-
     defaultConfig {
-        buildConfigField(
-            "String", "UNSPLASH_ACCESS_KEY",
-            properties["UNSPLASH_ACCESS_KEY"].toString()
-        )
-
         applicationId = "com.example.unex"
         minSdk = 26
         targetSdk = 34
@@ -26,6 +18,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val properties = Properties()
+        properties.load(FileInputStream("local.properties"))
+        buildConfigField(
+            "String",
+            "UNSPLASH_ACCESS_KEY",
+            properties.getProperty("UNSPLASH_ACCESS_KEY")
+        )
     }
 
     buildTypes {
@@ -66,5 +66,5 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
-
+    implementation(libs.shimmer)
 }
