@@ -1,5 +1,7 @@
-package com.example.unex.data
+package com.example.unex.data.remote
 
+import com.example.unex.BuildConfig
+import com.example.unex.data.utils.PrettyJsonLogger
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,13 +13,14 @@ object RetrofitClient {
     private var instance: Retrofit? = null
     private val gson = GsonBuilder().setLenient().create()
 
-    private var httpClient = OkHttpClient.Builder()
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        })   // LoggingInterceptor 추가
-//        .connectTimeout(60, TimeUnit.SECONDS)
-//        .readTimeout(60, TimeUnit.SECONDS)
-//        .writeTimeout(60, TimeUnit.SECONDS)
+    private val loggingInterceptor = if (BuildConfig.DEBUG) {
+        HttpLoggingInterceptor(PrettyJsonLogger()).setLevel(HttpLoggingInterceptor.Level.BODY)
+    } else {
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+    }
+
+    private val client = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
         .build()
 
     fun getInstance(): Retrofit {
@@ -25,7 +28,7 @@ object RetrofitClient {
             instance = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(httpClient)
+                .client(client)
                 .build()
         }
         return instance!!
