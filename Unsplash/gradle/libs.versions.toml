@@ -1,5 +1,8 @@
 [versions]
 agp = "8.3.1"
+compiler = "4.12.0"
+glide = "4.16.0"
+hilt = "2.44"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -10,9 +13,16 @@ material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
 shimmer = "0.5.0"
+swiperefreshlayout = "1.1.0"
+jetbrainsKotlinJvm = "1.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -25,4 +35,7 @@ shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 

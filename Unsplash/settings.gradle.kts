@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "unEx"
 include(":app")
+include(":domain")
+include(":data")
+include(":presentation")
