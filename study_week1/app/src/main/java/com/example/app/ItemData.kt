@@ -6,7 +6,7 @@ data class ItemData(
     val type: String,
     val description: String,
     val imageUrl: String,
-    val itemCount: Int = 0
+    var itemCount: Int = 0
 )
 
 val DummyItemData = arrayListOf(
