@@ -15,21 +15,21 @@ class MyItemTouchHelperCallback(private val recyclerView: RecyclerView) :
         target: RecyclerView.ViewHolder
     ): Boolean {
         (recyclerView.adapter as? MyListAdapter)?.moveItem(
-            viewHolder.bindingAdapterPosition,
-            target.bindingAdapterPosition
+            viewHolder.adapterPosition,
+            target.adapterPosition
         )
         return true
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        (recyclerView.adapter as? MyListAdapter)?.removeItem(viewHolder.bindingAdapterPosition)
+        (recyclerView.adapter as? MyListAdapter)?.removeItem(viewHolder.adapterPosition)
     }
 
     // 홀딩중인 ViewHolder 투명도를 변경
     override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
         super.onSelectedChanged(viewHolder, actionState)
         if (actionState == ItemTouchHelper.ACTION_STATE_DRAG || actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-            (viewHolder as? MyViewHolder)?.setAlpha(0.5f)
+            (viewHolder as? MyListAdapter.MyViewHolder)?.setAlpha(0.5f)
         }
     }
 
@@ -39,6 +39,6 @@ class MyItemTouchHelperCallback(private val recyclerView: RecyclerView) :
         viewHolder: RecyclerView.ViewHolder
     ) {
         super.clearView(recyclerView, viewHolder)
-        (viewHolder as? MyViewHolder)?.setAlpha(1.0f)
+        (viewHolder as? MyListAdapter.MyViewHolder)?.setAlpha(1.0f)
     }
 }
